@@ -5,24 +5,12 @@
 
 export const decodedValue = colors => {
 
-  const colorString = colorMapTens[colors[0]] + colorMapOnes[colors[1]];
+  const colorString = colorMap[colors[0]] * 10 + colorMap[colors[1]];
   
   return colorString;
 };
 
-const colorMapTens = {
-    'black': 0,
-    'brown': 10,
-    'red': 20,
-    'orange': 30,
-    'yellow': 40,
-    'green': 50,
-    'blue': 60,
-    'violet': 70,
-    'grey': 80,
-    'white': 90,
-};
-const colorMapOnes = {
+const colorMap = {
     'black': 0,
     'brown': 1,
     'red': 2,
