@@ -5,9 +5,9 @@
 
 export const decodedValue = colors => {
 
-  const colorString = colorMap[colors[0]] * 10 + colorMap[colors[1]];
+  const resistanceValue = colorMap[colors[0]] * 10 + colorMap[colors[1]];
   
-  return colorString;
+  return resistanceValue;
 };
 
 const colorMap = {
