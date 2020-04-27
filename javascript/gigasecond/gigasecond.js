@@ -3,12 +3,4 @@
 // convenience to get you started writing code faster.
 //
 
-export const gigasecond = dateIn => {
-  const dateInSeconds = Date.getUTCSeconds(dateIn);
-
-  const combineSeconds = dateInSeconds + 10^9;
-
-  const dateFromSeconds = Date.getUTCDate(combineSeconds);
-
-  return dateFromSeconds;
-};
+export const gigasecond = dateIn => new Date(Number(dateIn) + 10e11);
