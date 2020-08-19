@@ -3,6 +3,19 @@
 // convenience to get you started writing code faster.
 //
 
-export const steps = () => {
-  throw new Error("Remove this statement and implement this function");
+export const steps = (int) => {
+  if(int < 1) { throw(new Error('Only positive numbers are allowed'))}
+
+  let count = 0;
+
+  while(int != 1) {
+    if(int % 2 === 0) {
+      int = int/2;
+      count++;
+    } else {
+      int = (3 * int) + 1;
+      count++;
+    }
+  }
+  return count;
 };
