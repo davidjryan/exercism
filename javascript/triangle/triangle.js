@@ -4,19 +4,28 @@
 //
 
 export class Triangle {
-  constructor() {
-    throw new Error("Remove this statement and implement this function");
+  constructor(x, y ,z) {
+    this.x = x;
+    this.y = y;
+    this.z = z;
   }
 
   isEquilateral() {
-    throw new Error("Remove this statement and implement this function");
+    return !(this.x === 0 && this.y === 0 && this.z === 0) && (this.x === this.y && this.x === this.z);
   }
 
   isIsosceles() {
-    throw new Error("Remove this statement and implement this function");
+    return this.isValidTriangle() && (this.x === this.y || this.y === this.z || this.x === this.z);
   }
 
   isScalene() {
-    throw new Error("Remove this statement and implement this function");
+    return this.isValidTriangle() && (this.x !== this.y && this.y !== this.z);
   }
+
+  isValidTriangle() {
+    return (this.x > 0 && this.y > 0 && this.z > 0) && (
+      this.z + this.y >= this.x &&
+      this.x + this.z >= this.y &&
+      this.x + this.y >= this.z
+      )}
 }
