@@ -3,24 +3,43 @@
 // convenience to get you started writing code faster.
 //
 
+const MINUTES_IN_HOUR = 60;
+const MINUTES_IN_DAY = 24 * 60;
+
+const calculateTotalMinutes = (totalMinutes) => {
+  const sumMinutes =
+    (MINUTES_IN_DAY + (totalMinutes % MINUTES_IN_DAY)) % MINUTES_IN_DAY;
+  return sumMinutes;
+};
+
 export class Clock {
-  constructor() {
-    throw new Error('Remove this statement and implement this function');
+  constructor(hours, minutes = 0) {
+    this._minutes = calculateTotalMinutes(hours * MINUTES_IN_HOUR + minutes);
+  }
+
+  get minutes() {
+    return this._minutes % MINUTES_IN_HOUR;
+  }
+
+  get hours() {
+    return Math.floor(this._minutes / MINUTES_IN_HOUR);
   }
 
   toString() {
-    throw new Error('Remove this statement and implement this function');
+    return [this.hours, this.minutes]
+      .map((time) => `${time}`.padStart(2, '0'))
+      .join(':');
   }
 
-  plus() {
-    throw new Error('Remove this statement and implement this function');
+  plus(minutes) {
+    return new Clock(0, this._minutes + minutes);
   }
 
-  minus() {
-    throw new Error('Remove this statement and implement this function');
+  minus(minutes) {
+    return new Clock(0, this._minutes - minutes);
   }
 
-  equals() {
-    throw new Error('Remove this statement and implement this function');
+  equals(newClock) {
+    return this._minutes === newClock._minutes;
   }
 }
